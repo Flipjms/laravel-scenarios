@@ -1,0 +1,34 @@
+<?php
+
+namespace Database\Scenarios;
+
+use Flipjms\Scenarios\Scenario;
+use function Termwind\{render};
+
+class {{ scenarioName }} extends Scenario
+{
+    /*
+    * The alias to call this scenario through the set scenario command
+    */
+    public string $alias = 'scenario-alias';
+
+
+    /*
+    * The description shown when listing all available scenarios
+    */
+    public string $description = 'Description goes here';
+
+    public function execute(): self
+    {
+        //
+
+        return $this;
+    }
+
+    public function output(): self
+    {
+        //
+
+        return $this;
+    }
+}
