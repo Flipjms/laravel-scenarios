@@ -14,7 +14,8 @@ use function Termwind\{render};
 class ScenarioSetCommand extends Command
 {
     protected $signature = 'scenarios:set {scenario?}
-                                {--fresh : Cleans database before setting up scenario}';
+                                {--fresh : Cleans database before setting up scenario}
+                                {--silent : Suppress styled status messages (plain output, easier to copy)}';
 
     protected $description = 'It sets the given scenario';
 
@@ -82,6 +83,10 @@ class ScenarioSetCommand extends Command
 
     protected function displayCleaningDatabaseMessage()
     {
+        if ($this->option('silent')) {
+            return;
+        }
+
         render(<<<'HTML'
             <div class="my-1 bg-orange text-black">Refreshing database...</div>
         HTML);
@@ -89,6 +94,10 @@ class ScenarioSetCommand extends Command
 
     protected function displayRunningMessage(string $scenario)
     {
+        if ($this->option('silent')) {
+            return;
+        }
+
         render(<<<HTML
             <div class="my-1 bg-green text-black">Running $scenario...</div>
         HTML);
