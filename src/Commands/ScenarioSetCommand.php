@@ -15,7 +15,7 @@ class ScenarioSetCommand extends Command
 {
     protected $signature = 'scenarios:set {scenario?}
                                 {--fresh : Cleans database before setting up scenario}
-                                {--silent : Suppress styled status messages (plain output, easier to copy)}';
+                                {--compact : Suppress styled status messages (plain output, easier to copy)}';
 
     protected $description = 'It sets the given scenario';
 
@@ -83,7 +83,7 @@ class ScenarioSetCommand extends Command
 
     protected function displayCleaningDatabaseMessage()
     {
-        if ($this->option('silent')) {
+        if ($this->option('compact')) {
             return;
         }
 
@@ -94,7 +94,7 @@ class ScenarioSetCommand extends Command
 
     protected function displayRunningMessage(string $scenario)
     {
-        if ($this->option('silent')) {
+        if ($this->option('compact')) {
             return;
         }
 
